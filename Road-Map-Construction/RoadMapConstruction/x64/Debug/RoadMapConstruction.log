@@ -1,0 +1,6 @@
+﻿  graph.cpp
+C:\Users\hp\Documents\Programming projects\C++ Projects\RoadMapConstruction\RoadMapConstruction\graph.h(16,24): error C3203: 'Edge': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\hp\Documents\Programming projects\C++ Projects\RoadMapConstruction\RoadMapConstruction\graph.h(25,2): message : see reference to class template instantiation 'Graph<t>' being compiled
+C:\Users\hp\Documents\Programming projects\C++ Projects\RoadMapConstruction\RoadMapConstruction\graph.cpp(4,1): fatal  error C1004: unexpected end-of-file found
+  Source.cpp
+  Generating Code...
