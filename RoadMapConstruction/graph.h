@@ -18,7 +18,7 @@ class Graph
 	void deleteVertex(string);
 	void deleteEdge(string, string);
 	void DFStraversal();
-	void BFStraversal();
+	void BFStraversal(string);
 	void PrimMinimumSpanningTree();
 };
 
