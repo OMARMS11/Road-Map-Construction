@@ -133,5 +133,58 @@ void Graph::PrimMinimumSpanningTree()
 }
 void Graph::BFStraversal()
 {
+	adjacencyList.insert(make_pair("a", list<Edge>()));
 
+	adjacencyList.insert(make_pair("b", list<Edge>()));
+
+	adjacencyList.insert(make_pair("c", list<Edge>()));
+
+	adjacencyList.insert(make_pair("d", list<Edge>()));
+
+	adjacencyList.insert(make_pair("e", list<Edge>()));
+
+	adjacencyList["a"].push_back(Edge("a", "b", 10));
+	adjacencyList["a"].push_back(Edge("a", "e", 20));
+
+	adjacencyList["b"].push_back(Edge("a", "b", 10));
+	adjacencyList["b"].push_back(Edge("c", "b", 5));
+
+	adjacencyList["c"].push_back(Edge("c", "b", 5));
+	adjacencyList["c"].push_back(Edge("c", "e", 15));
+	adjacencyList["c"].push_back(Edge("c", "d", 8));
+
+	adjacencyList["d"].push_back(Edge("c", "d", 8));
+	adjacencyList["d"].push_back(Edge("d", "e", 6));
+
+	adjacencyList["e"].push_back(Edge("c", "e", 15));
+	adjacencyList["e"].push_back(Edge("d", "e", 6));
+	adjacencyList["e"].push_back(Edge("a", "e", 20));
+
+	queue<string> nodes;
+	nodes.push(adjacencyList.begin()->first);
+
+	unordered_map<string, bool> visited;
+	visited[adjacencyList.begin()->first] = true;
+
+	string node;
+
+	while(!nodes.empty())
+	{
+		node = nodes.front();
+		cout << node << endl;
+		nodes.pop();
+		for (auto i = adjacencyList[node].begin(); i != adjacencyList[node].end(); i++)
+		{
+			if (!visited[i->getVertex1()])
+			{
+				nodes.push(i->getVertex1());
+				visited[i->getVertex1()] = true;
+			}
+			if (!visited[i->getVertex2()])
+			{
+				nodes.push(i->getVertex2());
+				visited[i->getVertex2()] = true;
+			}
+		}
+	}
 }
