@@ -1,3 +1,4 @@
+
 #include "graph.h"
 #include <vector>
 #include <iostream>
@@ -36,7 +37,7 @@ string Edge::getVertex2()
 }
 
 
-void Graph::PrimMinimumSpanningTree() 
+void Graph::PrimMinimumSpanningTree()
 {
 	///
 	/// kjljl
@@ -79,7 +80,7 @@ void Graph::PrimMinimumSpanningTree()
 	auto currentNode = adjacencyList.begin()->first;
 	visitedVerticies.push_back(currentNode);
 
-	while (visitedVerticies.size() < adjacencyList.size()) 
+	while (visitedVerticies.size() < adjacencyList.size())
 	{
 
 		list<Edge> currentAdjacentEdges = adjacencyList[currentNode];
@@ -92,7 +93,7 @@ void Graph::PrimMinimumSpanningTree()
 		sort(unusedAdjacentEdges.begin(), unusedAdjacentEdges.end());
 		bool makeCycle = true;
 
-		while(makeCycle)
+		while (makeCycle)
 		{
 
 			Edge currentEdge = unusedAdjacentEdges[0];
@@ -100,14 +101,14 @@ void Graph::PrimMinimumSpanningTree()
 			bool foundVertex1 = count(visitedVerticies.begin(), visitedVerticies.end(), currentEdge.getVertex1()) != 0;
 			bool foundVertex2 = count(visitedVerticies.begin(), visitedVerticies.end(), currentEdge.getVertex2()) != 0;
 
-			if ((foundVertex1) ^ (foundVertex2)) 
+			if ((foundVertex1) ^ (foundVertex2))
 			{
 				edgesOrder.push(currentEdge);
-				if (!foundVertex1) 
+				if (!foundVertex1)
 				{
 					currentNode = currentEdge.getVertex1();
 				}
-				else 
+				else
 				{
 					currentNode = currentEdge.getVertex2();
 				}
@@ -129,5 +130,8 @@ void Graph::PrimMinimumSpanningTree()
 			" " << edgesOrder.front().length << endl;
 		edgesOrder.pop();
 	}
-	
+}
+void Graph::BFStraversal()
+{
+
 }
