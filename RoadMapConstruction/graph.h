@@ -4,13 +4,25 @@
 #include <string>
 using namespace std;
 
-class Edge {
-	double length;
+class Edge 
+{
 	string vertex1, vertex2;
+public:
+	Edge(string, string, double);
+	Edge();
+	double length;
+
+	string getVertex1();
+	string getVertex2();
+
+	bool operator < (Edge e);
+	bool operator == (Edge e);
+
 };
 
 class Graph
 {
+public:
 	unordered_map<string, list<Edge>> adjacencyList;
 	
 	void insertVertex(string);
@@ -18,7 +30,7 @@ class Graph
 	void deleteVertex(string);
 	void deleteEdge(string, string);
 	void DFStraversal();
-	void BFStraversal(string);
+	void BFStraversal();
 	void PrimMinimumSpanningTree();
 };
 
